@@ -2,18 +2,17 @@
 
 A Model Context Protocol (MCP) server to manage [Multipass](https://multipass.run/) instances.
 
-## Features
-
-- **Robust Command Execution**: Uses `shlex` for safe command parsing.
-- **Timeout Support**: Commands have a default timeout of 60s to prevent hanging.
-- **Detailed Error Handling**: Custom exceptions and logging for better debugging.
-- **Comprehensive Instance Management**: Support for start, stop, suspend, resume, and purge.
-
 ## Usage
 
 ### Claude Desktop Configuration
 
-Add the following to your Claude configuration:
+Add via the command line:
+
+```bash
+claude mcp add --transport stdio multipass -- uvx multipass-mcp
+```
+
+Or add the following to your Claude configuration:
 
 ```json
 {
@@ -24,12 +23,6 @@ Add the following to your Claude configuration:
     }
   }
 }
-```
-
-Or via the command line:
-
-```bash
-claude mcp add --transport stdio multipass -- uvx multipass-mcp
 ```
 
 ## Available Tools
@@ -45,22 +38,3 @@ claude mcp add --transport stdio multipass -- uvx multipass-mcp
 - `execute_command`: Run shell commands inside an instance.
 - `get_instance_info`: Get detailed specifications and resource usage (CPU, Memory, Disk).
 - `purge_instances`: Cleanup all deleted instances to free up disk space.
-
-## Development
-
-### Prerequisites
-
-- [Multipass](https://multipass.run/install) installed and running.
-- [uv](https://github.com/astral-sh/uv) for dependency management.
-
-### Running Tests
-
-```bash
-uv run pytest
-```
-
-### Installation from Source
-
-```bash
-uv pip install -e .
-```
