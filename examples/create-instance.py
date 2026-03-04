@@ -3,6 +3,7 @@ from claude_agent_sdk import query, ClaudeAgentOptions
 
 async def main():
     options = ClaudeAgentOptions(
+        disallowed_tools=['Bash', 'Edit', 'Grep'],
         mcp_servers={
             "multipass": {
                 "command": "uvx",
