@@ -8,8 +8,10 @@ async def main():
                 "command": "uvx",
                 "args": ["multipass-mcp"],
             }
-        }
+        },
+        permission_mode="bypassPermissions",
     )
+
     async for message in query(
         prompt="List all my multipass instances and tell me which ones are running.",
         options=options,
