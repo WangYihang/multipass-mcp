@@ -14,7 +14,7 @@ class InstanceNotFoundError(MultipassError):
 
 
 class MultipassCLI:
-    def __init__(self, timeout: float = 60.0):
+    def __init__(self, timeout: float = 300.0):
         self.timeout = timeout
 
     async def _run(self, *args: str) -> str:
