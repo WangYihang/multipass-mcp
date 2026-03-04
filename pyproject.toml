@@ -1,0 +1,18 @@
+[project]
+name = "multipass-mcp"
+version = "0.1.0"
+description = "Multipass MCP Server"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=3.1.0",
+    "pytest>=9.0.2",
+    "pytest-asyncio>=0.23.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+
+[project.scripts]
+multipass-mcp = "multipass_mcp.server:mcp.run"
