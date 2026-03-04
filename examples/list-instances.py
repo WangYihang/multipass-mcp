@@ -6,8 +6,8 @@ async def main():
         disallowed_tools=['Bash', 'Edit', 'Grep', 'Glob', 'Read', 'Write'],
         mcp_servers={
             "multipass": {
-                "command": "uvx",
-                "args": ["multipass-mcp"],
+                "command": "uv",
+                "args": ["run", "multipass-mcp"],
             }
         },
         permission_mode="bypassPermissions",
