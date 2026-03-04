@@ -13,7 +13,7 @@ A Model Context Protocol (MCP) server to manage [Multipass](https://multipass.ru
 
 ### Claude Desktop Configuration
 
-Add the following to your Claude Desktop configuration (e.g., `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+Add the following to your Claude configuration:
 
 ```json
 {
