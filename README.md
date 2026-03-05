@@ -4,9 +4,7 @@ A Model Context Protocol (MCP) server to manage [Multipass](https://multipass.ru
 
 ## Usage
 
-### Claude Desktop Configuration
-
-Add via the command line:
+### Claude
 
 ```bash
 claude mcp add --transport stdio multipass -- uvx multipass-mcp
@@ -23,6 +21,18 @@ Or add the following to your Claude configuration:
     }
   }
 }
+```
+
+### Gemini
+
+```bash
+gemini mcp add multipass uvx multipass-mcp
+```
+
+### Codex
+
+```bash
+codex mcp add multipass -- uvx multipass-mcp
 ```
 
 ## Available Tools
