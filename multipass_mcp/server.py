@@ -35,7 +35,7 @@ async def list_instances() -> list[MultipassInstance]:
 
 @mcp.tool()
 async def find_images() -> list[MultipassImage]:
-    """Find available images for launching new instances."""
+    """Find available Multipass images for launching new instances."""
     return await image_commands.find_images(cli)
 
 
@@ -182,10 +182,10 @@ async def set_config(key: str, value: str) -> str:
 @mcp.tool()
 async def clone_instance(source: str, name: str | None = None) -> str:
     """
-    Clone an existing instance.
+    Clone an existing Multipass instance.
 
     Args:
-        source: The name of the source instance to be cloned.
+        source: The name of the source Multipass instance to be cloned.
         name: An optional custom name for the cloned instance.
     """
     return await instance_commands.clone_instance(cli, source, name)
@@ -201,11 +201,11 @@ async def mount_directory(
     mount_type: str | None = None,
 ) -> str:
     """
-    Mount a local directory inside an instance.
+    Mount a local directory inside a Multipass instance.
 
     Args:
         source: Path of the local directory to mount.
-        instance: Name of the instance.
+        instance: Name of the Multipass instance.
         target: Optional target mount point inside the instance.
         uid_map: Optional list of UID mappings (host:instance).
         gid_map: Optional list of GID mappings (host:instance).
@@ -217,10 +217,10 @@ async def mount_directory(
 @mcp.tool()
 async def umount_directory(instance: str, path: str | None = None) -> str:
     """
-    Unmount a directory from an instance.
+    Unmount a directory from a Multipass instance.
 
     Args:
-        instance: Name of the instance.
+        instance: Name of the Multipass instance.
         path: Optional specific mount point to unmount. If omitted, all mounts are removed.
     """
     return await storage_commands.umount_directory(cli, instance, path)
@@ -234,11 +234,11 @@ async def transfer_file(
     parents: bool = False,
 ) -> str:
     """
-    Transfer files/directories between host and instances.
+    Transfer files/directories between the host and Multipass instances.
 
     Args:
-        source: Source path (prefix with 'name:' for instance paths).
-        destination: Destination path (prefix with 'name:' for instance paths).
+        source: Source path (prefix with 'name:' for Multipass instance paths).
+        destination: Destination path (prefix with 'name:' for Multipass instance paths).
         recursive: Recursively copy entire directories.
         parents: Make parent directories as needed.
     """
@@ -248,10 +248,10 @@ async def transfer_file(
 @mcp.tool()
 async def snapshot_instance(instance: str, name: str | None = None, comment: str | None = None) -> str:
     """
-    Take a snapshot of a stopped instance.
+    Take a snapshot of a stopped Multipass instance.
 
     Args:
-        instance: The name of the instance.
+        instance: The name of the Multipass instance.
         name: Optional name for the snapshot.
         comment: Optional comment for the snapshot.
     """
@@ -261,10 +261,10 @@ async def snapshot_instance(instance: str, name: str | None = None, comment: str
 @mcp.tool()
 async def restore_instance(instance: str, snapshot: str, destructive: bool = False) -> str:
     """
-    Restore an instance to a previously taken snapshot.
+    Restore a Multipass instance to a previously taken snapshot.
 
     Args:
-        instance: The name of the instance.
+        instance: The name of the Multipass instance.
         snapshot: The name of the snapshot to restore.
         destructive: If True, discard the current state of the instance.
     """
@@ -273,17 +273,17 @@ async def restore_instance(instance: str, snapshot: str, destructive: bool = Fal
 
 @mcp.tool()
 async def list_snapshots() -> list[MultipassSnapshot]:
-    """List all available snapshots."""
+    """List all available Multipass snapshots."""
     return await snapshot_commands.list_snapshots(cli)
 
 
 @mcp.tool()
 async def recover_instance(name: str | None = None, all_instances: bool = False) -> str:
     """
-    Recover deleted instances.
+    Recover deleted Multipass instances.
 
     Args:
-        name: Name of the instance to recover.
+        name: Name of the Multipass instance to recover.
         all_instances: If True, recover all deleted instances.
     """
     return await instance_commands.recover_instance(cli, name, all_instances)
@@ -297,10 +297,10 @@ async def create_alias(
     map_working_directory: bool = True,
 ) -> str:
     """
-    Create an alias to be executed on a given instance.
+    Create a Multipass alias to be executed on a given Multipass instance.
 
     Args:
-        instance: Name of the instance.
+        instance: Name of the Multipass instance.
         command: Command to execute.
         alias_name: Optional name for the alias. Defaults to command name.
         map_working_directory: If True, automatically map host execution path to mounted path.
@@ -310,17 +310,17 @@ async def create_alias(
 
 @mcp.tool()
 async def list_aliases() -> list[MultipassAlias]:
-    """List available aliases."""
+    """List available Multipass aliases."""
     return await alias_commands.list_aliases(cli)
 
 
 @mcp.tool()
 async def remove_alias(alias_names: list[str] | None = None, all_aliases: bool = False) -> str:
     """
-    Remove aliases.
+    Remove Multipass aliases.
 
     Args:
-        alias_names: Optional list of alias names to remove.
+        alias_names: Optional list of Multipass alias names to remove.
         all_aliases: If True, remove all aliases from current context.
     """
     return await alias_commands.remove_alias(cli, alias_names, all_aliases)
@@ -329,10 +329,10 @@ async def remove_alias(alias_names: list[str] | None = None, all_aliases: bool =
 @mcp.tool()
 async def switch_alias_context(context_name: str) -> str:
     """
-    Switch the current alias context.
+    Switch the current Multipass alias context.
 
     Args:
-        context_name: Name of the context to switch to.
+        context_name: Name of the Multipass alias context to switch to.
     """
     return await alias_commands.switch_alias_context(cli, context_name)
 
