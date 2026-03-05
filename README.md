@@ -26,7 +26,7 @@ Or add the following to your Claude configuration:
 ### Gemini
 
 ```bash
-gemini mcp add multipass uvx multipass-mcp
+gemini mcp add --transport stdio multipass uvx multipass-mcp
 ```
 
 ### Codex
